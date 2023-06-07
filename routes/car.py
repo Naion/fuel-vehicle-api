@@ -10,13 +10,12 @@ def car_makers():
 
 @car.get('/{name}')
 def car_maker(name: str):
-    return carMaker(conn.vehicles.car_makers.find({"name": name}))
+    return carMaker(conn.vehicles.car_makers.find_one({"name": name}))
 
 @car.get('/cars/{maker}')
 def car_models(maker: str):
     return carModels(conn.vehicles.car_models.find({"maker": maker}))
 
-@car.get('/cars/{maker}_{model}')
+@car.get('/cars/{maker}/{model}')
 def car_Entity(maker: str, model: str):
-    car_detail = {"maker": maker, "model": model}
-    return carModel(conn.vehicles.car_models.find(car_detail))
+    return carModel(conn.vehicles.car_models.find_one({"maker": maker, "model": model}))
