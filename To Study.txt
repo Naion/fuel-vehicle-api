@@ -1,0 +1,5 @@
+MongoDB
+MySQL
+JS
+Crear una API (Node.js)
+Crear mi propia pagina web
