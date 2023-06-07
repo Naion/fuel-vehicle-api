@@ -4,13 +4,13 @@ from schemas.car import carMaker, carMakers, carModel, carModels, carEntity, car
 
 car = APIRouter()
 
-@car.get('/{maker}')
-def car_maker(maker: str):
-    return carMaker(conn.vehicles.car_maker.find({"name": maker}))
-
 @car.get('/cars')
 def car_makers():
     return carMakers(conn.vehicles.car_makers.find())
+
+@car.get('/{name}')
+def car_maker(name: str):
+    return carMaker(conn.vehicles.car_makers.find({"name": name}))
 
 @car.get('/cars/{maker}')
 def car_models(maker: str):
