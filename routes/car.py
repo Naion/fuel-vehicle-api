@@ -18,4 +18,5 @@ def car_models(maker: str):
 
 @car.get('/cars/{maker}_{model}')
 def car_Entity(maker: str, model: str):
-    return carModel(conn.vehicles.car_models.find({"maker": maker, "model": model}))
+    car_detail = {"maker": maker, "model": model}
+    return carModel(conn.vehicles.car_models.find(car_detail))
